@@ -1,0 +1,7 @@
+.ui-panelgrid .ui-panelgrid-cell{
+    border-width: 0px;
+}
+
+.noborder .ui-widget-content {
+    border: 0px;
+}
