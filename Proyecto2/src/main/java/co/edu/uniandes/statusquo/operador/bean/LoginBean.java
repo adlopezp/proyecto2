@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.statusquo.operador.bean;
 
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -19,6 +20,7 @@ public class LoginBean {
     private String usuario;
     private String password;
     private String seleccion;
+    private Date logonDate;
 
     public String getUsuario() {
         return usuario;
@@ -45,4 +47,13 @@ public class LoginBean {
     public void setSeleccion(String seleccion) {
         this.seleccion = seleccion;
     }
+
+    public Date getLogonDate() {
+        return logonDate;
+    }
+
+    public void setLogonDate(Date logonDate) {
+        this.logonDate = new Date();
+    }
+    
 }
