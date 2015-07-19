@@ -30,11 +30,11 @@
                                     <h:outputText style="text-align: right;">Rol:</h:outputText>
                                     <h:outputText>Ciudadano</h:outputText>
                                     <h:outputText style="text-align: right;">Fecha:</h:outputText>
-                                    <h:outputText value="#{currentDate}">
+                                    <h:outputText value="#{utilBean.currentTime}">
                                         <f:convertDateTime pattern="EEEE dd 'de' MMM 'de' yyyy" />
                                     </h:outputText>
                                     <h:outputText style="text-align: right;">Logon Time:</h:outputText>
-                                    <h:outputText value="#{currentDate}">
+                                    <h:outputText value="#{utilBean.currentTime}">
                                         <f:convertDateTime pattern="HH:mm" />
                                     </h:outputText>
                                 </h:panelGrid>
