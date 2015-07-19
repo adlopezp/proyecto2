@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -7,57 +7,12 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-        <link rel="shortcut icon" href="recursos/imagenes/icon.png" />
-        <link rel="shortcut icon" href="./../recursos/imagenes/icon.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="resources/css/default.css" rel="stylesheet" type="text/css" />
-        <link href="resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
-        <style type="text/css">         
-            .ui-expand { width: 100%; }
-            .ui-widget,
-            .ui-widget .ui-widget {
-                font-size: 12px !important;
-            }
-            
-            .dcjq-mega-menu ul.menu li a {
-                border: 1px solid #77D5F7;
-                background: #0078AE;
-                font-weight: normal;
-                color:black;
-            }
-
-            tr.inactive {
-                background-image: none;
-                background-color: #CCCCCC;
-                color: #3D3D3D;
-            }
-            tr.amarillo {
-                background-image: none;
-                background-color: #F3F781;
-                color: #3D3D3D;
-            }
-            tr.rojo {
-                background-image: none;
-                background-color: #FA5858;
-                color: #3D3D3D;
-            }
-        </style>
-        <script type="text/javascript" language="javascript">
-            function hideOverlay() {
-                el = document.getElementById("ajaxOverlay");
-                el.style.visibility = "hidden";
-            }
-            function showOverlay() {
-                el = document.getElementById("ajaxOverlay");
-                el.style.visibility = "visible";
-            }
-            function refresh(){
-                location.reload();
-            }
-        </script>
-        <ui:insert name="head"></ui:insert>
+        <link rel="shortcut icon" href="#{request.contextPath}/recursos/imagenes/icono.ico" />
+        <link rel="stylesheet" href="#{request.contextPath}/recursos/css/portal.css"/>
+        <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
+        <ui:insert name="head"/>
     </h:head>
-
     <h:body onload="#{login.iniciarBean()}">
         <div id="wrap" style="height: 100%;">
             <div id="top">
@@ -65,7 +20,7 @@
                     <p:panel style="padding: 0px;">
                         <h:panelGrid columns="2" style="font-size: 30px; font-weight: bold; color: #ffcc33; padding: 0px; width: 100%;">
                             <h:panelGrid columns="2">
-                                <p:graphicImage value="/imagenes/LogoCC.png" style="padding: 0px; margin: 0px; width: 75%;height: 75%"/>
+                                <p:graphicImage value="/recursos/imagenes/logo.png" style="padding: 0px; margin: 0px; width: 75%;height: 75%"/>
                                 <h:outputText style="padding-left: 10px; text-align: left;">Sistema Carpeta Personal</h:outputText>
                             </h:panelGrid>
                             <p:panel>
@@ -82,15 +37,12 @@
                                     <h:outputText value="#{currentDate}">
                                         <f:convertDateTime pattern="HH:mm" />
                                     </h:outputText>
-
-
-
                                 </h:panelGrid>
                             </p:panel>
                         </h:panelGrid>
                         <h:form id="menuForm">
                             <p:megaMenu styleClass="ui-state-default" >
-                                <p:menuitem  value="Inicio" url="welcome.xhtml" />
+                                <p:menuitem  value="Inicio" url="/portal.jsf" />
                                 <p:submenu label="Administracion de Archivos" icon="ui-icon-check">
                                     <p:column>
                                         <p:submenu style="color:black" label="Firma Digital">
@@ -103,38 +55,35 @@
                                         </p:submenu>
                                     </p:column>
                                 </p:submenu>
-                                <p:menuitem value="Cerrar Session" url="index.xhtml" />
+                                <p:menuitem value="Cerrar Session" url="index.jsf" />
                             </p:megaMenu>
-                        </h:form> 
+                        </h:form>
 
                     </p:panel>
                 </ui:insert>
             </div>
             <div>
                 <div id="left">
-                    <ui:insert name="left"></ui:insert>
+                    <ui:insert name="left"/>
                 </div>
                 <div>
                     <div id="right">
-                        <ui:insert name="right"> </ui:insert>
+                        <ui:insert name="right"/>
                     </div>
                     <div id="content" class="right_content" style="min-height: 130px;">
-                        <ui:insert name="content">Content</ui:insert>
+                        <ui:insert name="content"/>
                     </div>
                 </div>
             </div>
             <div id="bottom">
-                <ui:insert name="bottom">
-                    <p:panel style="text-align: center;">
-                        Powered by StatusQuo - Bogot&aacute; - Colombia - Todos los Derechos Reservados.
-                        <h:outputText value="Versión 1.0"/>
-                    </p:panel>
-                </ui:insert>
+                <p:panel style="text-align: center;">
+                    Powered by StatusQuo - Bogot&aacute; - Colombia - Todos los Derechos Reservados.
+                    <h:outputText value="Versión 1.0"/>
+                </p:panel>
+                <ui:insert name="bottom"/>
             </div>
         </div>
-        <ui:insert name="overlay">
-
-        </ui:insert>
+        <ui:insert name="overlay"/>
     </h:body>
 
 </html>

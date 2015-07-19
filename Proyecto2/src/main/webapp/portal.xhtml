@@ -3,38 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Mi Carpeta Personal</title>
-        <link rel="stylesheet" href="#{request.contextPath}/recursos/css/portal.css"/>
-        <script type="text/javascript">
-            function abrirPagina(codigo) {
-                window.location = codigo + '.jsf';
-            }
-        </script>
-    </h:head>
     <h:body>
-        <h:form id="formulario_frm">
-            <div align="center">
-
-                <br/>
-                <br/>
-                <span style="font-weight: bold; font-size: 26px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Mi Carpeta Personal</span><br/>
-                <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Inicio</span>
-                <br/>
-                <br/>
-                <br/>
-                <div style="width: 620px;">
-                    <p:menubar>
-                        <p:menuitem value="Mis Documentos" url="#" />
-                        <p:menuitem value="Mi Perfil" url="#" />
-                        <p:menuitem value="Mis Tramites" url="#" />
-                        <p:menuitem value="Cerrar Sesión" url="index.jsf" />
-                    </p:menubar>
-                </div>
-            </div>
-        </h:form>
+        <ui:composition template="./WEB-INF/template/master-page.xhtml" >
+            <ui:define name="head">
+                <title>Bienvenido</title>
+            </ui:define>
+            <ui:define name="content">
+                Bienvenido al Sistema Carpeta Personal
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
-

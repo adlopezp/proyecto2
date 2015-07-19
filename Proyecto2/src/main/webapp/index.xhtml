@@ -6,8 +6,9 @@
     <h:head>
         <title>Mi Carpeta Personal - Registro</title>
         <link rel="stylesheet" href="#{request.contextPath}/recursos/css/portal.css"/>
+        <link rel="shortcut icon" href="#{request.contextPath}/recursos/imagenes/icono.ico" />
     </h:head>
-    <tbody>
+    <h:body>
         <h:form id="formulario_frm">
             <div align="center">
                 <br/>
@@ -44,7 +45,7 @@
                         </p:row>
                         <p:row style="border: 0px">
                             <p:column colspan="2" style="text-align: center;">
-                                <p:commandButton value="Entrar" action="welcome?faces-redirect=true"/>
+                                <p:commandButton value="Entrar" action="portal?faces-redirect=true"/>
                             </p:column>
                         </p:row>
                     </p:panelGrid>
@@ -54,13 +55,13 @@
                 <table>
                     <tr>
                         <td><p:commandButton value="Registrarse" action="registro?faces-redirect=true"/></td>
-                        <td><p:commandButton value="Olvide mi Contraseña" action="#{loginBean.loginAction}" disabled="true"/></td>
+                        <td><p:commandButton value="Olvide mi Contraseña" action="registro?faces-redirect=true" disabled="true"/></td>
                     </tr>
                 </table>
 
 
             </div>
         </h:form>
-    </tbody>
+    </h:body>
 </html>
 
