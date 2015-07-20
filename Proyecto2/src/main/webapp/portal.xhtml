@@ -7,8 +7,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:body>
         <ui:composition template="./WEB-INF/template/master-page.xhtml" >
+
             <ui:define name="head">
                 <title>Bienvenido</title>
+            </ui:define>
+            <ui:define name="atajo">
+                <p:breadCrumb>
+                    <p:menuitem value="Atajo" url="" />
+                    <p:menuitem value="Inicio" url=""/>
+                </p:breadCrumb>
             </ui:define>
             <ui:define name="content">
                 Bienvenido al Sistema Carpeta Personal
