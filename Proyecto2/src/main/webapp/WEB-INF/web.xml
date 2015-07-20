@@ -32,7 +32,7 @@
     <!-- Prime faces options -->
      <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>start</param-value>
+        <param-value>#{loginBean.theme}</param-value>
     </context-param>
     <context-param>
         <param-name>primefaces.FONT_AWESOME</param-name>

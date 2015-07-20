@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.statusquo.operador.bean;
 
+import co.edu.uniandes.statusquo.utils.HelperMethods;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,6 +23,9 @@ public class LoginBean {
     private String usuario;
     private String password;
     private String seleccion;
+    private String theme="start";
+    private String template="master-page";
+    private List<String> usuarios=new ArrayList<String>();
     private Date logonDate;
 
     public String getUsuario() {
@@ -39,10 +45,12 @@ public class LoginBean {
     }
 
     public void loginAction() {
-        if (usuario != null && usuario.equals("admin") && password != null && password.equals("admin")) {
+        if (usuario != null && getUsuarios().contains(usuario.toLowerCase())) {
+            //setTheme();
+            //setTemplate();
             UtilBean.redirect("portal.jsf?faces-redirect=true");
         } else {
-            UtilBean.printMensaje("Error de usuario y Contraseña"); 
+            HelperMethods.showMessageGrowl("Alerta","Error de usuario y Contraseña"); 
         }
 
     }
@@ -61,6 +69,33 @@ public class LoginBean {
 
     public void setLogonDate(Date logonDate) {
         this.logonDate = new Date();
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+
+    public List<String> getUsuarios() {
+        this.usuarios.add("usuario");
+        this.usuarios.add("centralizador");
+        this.usuarios.add("entidad");
+        return usuarios;
+    }
+
+    public void setUsuarios(List<String> usuarios) {
+        this.usuarios = usuarios;
     }
 
 }
