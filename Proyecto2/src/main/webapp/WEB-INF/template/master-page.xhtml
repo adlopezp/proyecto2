@@ -41,23 +41,39 @@
                             </p:panel>
                         </h:panelGrid>
                         <h:form id="menuForm">
-                            <p:megaMenu styleClass="ui-state-default" >
-                                <p:menuitem  value="Inicio" url="/portal.jsf" />
-                                <p:menuitem  value="Crud" url="/crud.jsf" />
-                                <p:menuitem  value="Crud 2" url="/crud2.jsf" />
-                                <p:submenu label="Administracion de Archivos" icon="ui-icon-check">
+                            <p:megaMenu styleClass="ui-state-default" autoDisplay="false">
+                                <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
+                                <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
+                                <p:menuitem icon="ui-icon-check" value="Crud 2" action="/crud2.jsf?faces-redirect=true" />
+                                <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
+                                <p:submenu label="Documentos" icon="ui-icon-document">
                                     <p:column>
-                                        <p:submenu style="color:black" label="Firma Digital">
-                                            <p:menuitem style="color:black"  value="Registro de Firma" url="#" />
-                                            <p:menuitem style="color:black" value="Consulta de Frimas" url="#" />
+                                        <p:submenu style="color:black" label="Carpeta Personal">
+                                            <p:menuitem style="color:black"  value="Administración de Documentos" url="/usuario/documentos/administracion-archivos.jsf" />
+                                            <p:menuitem style="color:black" value="Administracion de Carpetas" url="/usuario/documentos/administracion-carpetas.jsf" />
+                                            <p:menuitem style="color:black" value="Documentos de Emisores" url="/usuario/documentos/documentos-emisores.jsf" />
+                                            <p:menuitem style="color:black" value="Documentos Resultantes Tramites" url="/usuario/documentos/resultados-tramite.jsf" />
+                                            <p:menuitem style="color:black" value="Solicitud de Documentos" url="/usuario/documentos/solicitud-documentos.jsf" />
                                         </p:submenu>
-                                        <p:submenu style="color:black" label="Archivos">
-                                            <p:menuitem style="color:black" value="Consulta de archivos" url="/ciudadano/administracion-archivos.jsf" />
-                                            <p:menuitem style="color:black" value="Carga de Archivos" url="#" />
+                                        <p:submenu style="color:black" label="Otros">
+                                            <p:menuitem style="color:black" value="Documentos Compartidos" url="/usuario/documentos/documentos-compartidos.jsf" />
+                                            <p:menuitem style="color:black" value="Firmar Documentos" url="/usuario/documentos/firmar-documentos.jsf" />
                                         </p:submenu>
                                     </p:column>
                                 </p:submenu>
-                                <p:menuitem value="Cerrar Session" url="index.jsf" />
+                                <p:menuitem icon="ui-icon-mail-closed" value="Correo Electrónico" action="/usuario/correo/email.jsf?faces-redirect=true" />
+                                <p:submenu icon="ui-icon-info" label="Notificaciones Oficiales">
+                                    <p:column>
+                                        <p:submenu style="color:black" label="Notificaciones">
+                                            <p:menuitem style="color:black" value="Administración de Notificaciones" url="/usuario/notificaciones/notificaciones-oficiales.jsf" />
+                                            <p:menuitem style="color:black" value="Autorización de Notificaciones" url="/usuario/notificaciones/autorizacion-notificaciones.jsf" />
+                                            <p:menuitem style="color:black" value="Solicitud Notificaciones" url="/usuario/notificaciones/solicitud-notificaciones.jsf" />
+                                            <p:menuitem style="color:black" value="Configuración" url="/usuario/notificaciones/configuracion-notificaciones.jsf" />
+                                        </p:submenu>
+                                    </p:column>
+                                </p:submenu>
+                                <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
+                                <p:menuitem icon="ui-icon-close" value="Cerrar Session" action="index.jsf?faces-redirect=true" />
                             </p:megaMenu>
                         </h:form>
                     </p:panel>
