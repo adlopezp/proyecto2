@@ -17,6 +17,10 @@
                 <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Segura, Rápida y Eficiente</span>
                 <br/>
                 <br/>
+                <h:form id="headerForm" prependId="false">
+                    <p:growl id="growl" showDetail="true" />
+                    <p:messages id="messages" showDetail="true"/>
+                </h:form>
                 <br/>
                 <br/>
                 <p:panel style="width: 520px" header="Registro" >
@@ -45,7 +49,7 @@
                         </p:row>
                         <p:row style="border: 0px">
                             <p:column colspan="2" style="text-align: center;">
-                                <p:commandButton value="Entrar" action="portal?faces-redirect=true"/>
+                                <p:commandButton value="Entrar" actionListener="#{loginBean.loginAction}" update="#{p:component('messages')}" />
                             </p:column>
                         </p:row>
                     </p:panelGrid>
@@ -58,8 +62,6 @@
                         <td><p:commandButton value="Olvide mi Contraseña" action="registro?faces-redirect=true" disabled="true"/></td>
                     </tr>
                 </table>
-
-
             </div>
         </h:form>
     </h:body>

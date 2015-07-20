@@ -13,12 +13,13 @@
         <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
         <ui:insert name="head"/>
     </h:head>
-    <h:body>
-        <div id="wrap" style="height: 100%;">
-            <div id="top">
+    <h:body onload="#{login.iniciarBean()}">
+        <p:layout fullPage="true" style="width: 90%;" >
+
+            <p:layoutUnit position="north" resizable="false" style="border: 0px;">
                 <ui:insert name="top">
                     <p:panel style="padding: 0px;">
-                        <h:panelGrid columns="2" style="font-size: 30px; font-weight: bold; color: #ffcc33; padding: 0px; width: 100%;">
+                        <h:panelGrid columns="2" style="font-size: 30px; font-weight: bold; color: #ffcc33; padding: 0px;">
                             <h:panelGrid columns="2">
                                 <p:graphicImage value="/recursos/imagenes/logo.png" style="padding: 0px; margin: 0px; width: 75%;height: 75%"/>
                                 <h:outputText style="padding-left: 10px; text-align: left;">Sistema Carpeta Personal</h:outputText>
@@ -40,51 +41,50 @@
                                 </h:panelGrid>
                             </p:panel>
                         </h:panelGrid>
-                        <h:form id="menuForm">
-                            <p:megaMenu styleClass="ui-state-default" >
-                                <p:menuitem  value="Inicio" url="/portal.jsf" />
-                                <p:menuitem  value="Crud" url="/crud.jsf" />
-                                <p:menuitem  value="Crud 2" url="/crud2.jsf" />
-                                <p:submenu label="Administracion de Archivos" icon="ui-icon-check">
-                                    <p:column>
-                                        <p:submenu style="color:black" label="Firma Digital">
-                                            <p:menuitem style="color:black"  value="Registro de Firma" url="#" />
-                                            <p:menuitem style="color:black" value="Consulta de Frimas" url="#" />
-                                        </p:submenu>
-                                        <p:submenu style="color:black" label="Archivos">
-                                            <p:menuitem style="color:black" value="Consulta de archivos" url="/ciudadano/administracion-archivos.jsf" />
-                                            <p:menuitem style="color:black" value="Carga de Archivos" url="#" />
-                                        </p:submenu>
-                                    </p:column>
-                                </p:submenu>
-                                <p:menuitem value="Cerrar Session" url="index.jsf" />
-                            </p:megaMenu>
-                        </h:form>
+                    </p:panel>
+
+                </ui:insert>
+                <ui:insert name="atajo"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" resizable="false" style="border: 0px;">
+                <ui:insert name="bottom">
+                    <p:panel style="text-align: center;">
+                        Powered by StatusQuo - Bogot&aacute; - Colombia - Todos los Derechos Reservados.
+                        <h:outputText value="Versión 1.0"/>
                     </p:panel>
                 </ui:insert>
-            </div>
-            <div>
-                <div id="left">
-                    <ui:insert name="left">
-                    </ui:insert>
-                </div>
-                <div>
-                    <div id="right">
-                        <ui:insert name="atajo"/>
-                    </div>
-                    <div id="content" class="right_content" style="min-height: 130px;">
-                        <ui:insert name="content"/>
-                    </div>
-                </div>
-            </div>
-            <div id="bottom">
-                <ui:insert name="bottom"/>
-                <p:panel style="text-align: center;">
-                    Powered by StatusQuo - Bogot&aacute; - Colombia - Todos los Derechos Reservados.
-                    <h:outputText value="Versión 1.0"/>
-                </p:panel>
-            </div>
-        </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" resizable="true" style="border: 0px;">
+                <ui:insert name="left">
+                    <h:form id="menuForm">
+                        <p:slideMenu style="width:220px">
+                            <p:menuitem  value="Inicio" url="/portal.jsf" />
+                            <p:menuitem  value="Crud" url="/crud.jsf" />
+                            <p:submenu label="Administracion de Archivos" icon="ui-icon-check">
+                                <p:submenu style="color:black" label="Firma Digital">
+                                    <p:menuitem style="color:black"  value="Registro de Firma" url="#" />
+                                    <p:menuitem style="color:black" value="Consulta de Frimas" url="#" />
+                                </p:submenu>
+                                <p:submenu style="color:black" label="Archivos">
+                                    <p:menuitem style="color:black" value="Consulta de archivos" url="#" />
+                                    <p:menuitem style="color:black" value="Carga de Archivos" url="#" />
+                                </p:submenu>
+                            </p:submenu>
+                            <p:separator />
+                            <p:menuitem value="Cerrar Session" url="index.jsf" />
+                        </p:slideMenu>
+                    </h:form>
+                </ui:insert>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" >
+                <ui:insert name="content"/>
+            </p:layoutUnit>
+
+        </p:layout>
         <ui:insert name="overlay"/>
     </h:body>
+
 </html>
