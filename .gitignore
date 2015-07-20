@@ -1,0 +1,8 @@
+/target/
+.settings
+.project
+.classpath
+nbactions.xml
+nb-configuration.xml
+faces-config.NavData
+/Proyecto2/target/
