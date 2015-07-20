@@ -27,6 +27,7 @@ public class LoginBean {
     }
 
     public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getPassword() {
@@ -34,9 +35,15 @@ public class LoginBean {
     }
 
     public void setPassword(String password) {
+        this.password = password;
     }
 
     public void loginAction() {
+        if (usuario != null && usuario.equals("admin") && password != null && password.equals("admin")) {
+            UtilBean.redirect("portal.jsf?faces-redirect=true");
+        } else {
+            UtilBean.printMensaje("Error de usuario y Contraseña");
+        }
 
     }
 
@@ -55,5 +62,5 @@ public class LoginBean {
     public void setLogonDate(Date logonDate) {
         this.logonDate = new Date();
     }
-    
+
 }

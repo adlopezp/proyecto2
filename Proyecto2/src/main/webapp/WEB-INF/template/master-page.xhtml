@@ -13,7 +13,7 @@
         <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
         <ui:insert name="head"/>
     </h:head>
-    <h:body onload="#{login.iniciarBean()}">
+    <h:body>
         <div id="wrap" style="height: 100%;">
             <div id="top">
                 <ui:insert name="top">
@@ -43,7 +43,6 @@
                         <h:form id="menuForm">
                             <p:megaMenu styleClass="ui-state-default" >
                                 <p:menuitem  value="Inicio" url="/portal.jsf" />
-                                <p:menuitem  value="Crud" url="/crud.jsf" />
                                 <p:submenu label="Administracion de Archivos" icon="ui-icon-check">
                                     <p:column>
                                         <p:submenu style="color:black" label="Firma Digital">
@@ -59,7 +58,6 @@
                                 <p:menuitem value="Cerrar Session" url="index.jsf" />
                             </p:megaMenu>
                         </h:form>
-
                     </p:panel>
                 </ui:insert>
             </div>
@@ -78,14 +76,13 @@
                 </div>
             </div>
             <div id="bottom">
+                <ui:insert name="bottom"/>
                 <p:panel style="text-align: center;">
                     Powered by StatusQuo - Bogot&aacute; - Colombia - Todos los Derechos Reservados.
                     <h:outputText value="Versión 1.0"/>
                 </p:panel>
-                <ui:insert name="bottom"/>
             </div>
         </div>
         <ui:insert name="overlay"/>
     </h:body>
-
 </html>
