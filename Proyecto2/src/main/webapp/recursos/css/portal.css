@@ -27,6 +27,13 @@ tr.rojo {
     color: #3D3D3D;
 }
 
+/*
+ * Clase para que no aparezca borde en los panelGrid
+ */
+.panelGridNoBorder  {
+    border: none !important;
+}
+
 .ui-panelgrid .ui-panelgrid-cell{
     border-width: 0px;
 }
