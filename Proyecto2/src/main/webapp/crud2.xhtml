@@ -31,7 +31,7 @@
                             <p:toolbarGroup align="left">
                                 <p:commandButton title="Refrescar" icon="ui-icon-refresh"
                                                  actionListener="#{crudBean.refresh}"
-                                                 update=":toolbarForm :listForm :editForm" />
+                                                 update=":toolbarForm :listForm :editForm " />
                                 <p:commandButton title="Nuevo" icon="ui-icon-document"
                                                  actionListener="#{crudBean.initNew}"
                                                  oncomplete="PF('editDlg').show()" update=":listForm :editForm :toolbarForm :headerForm" />
@@ -52,7 +52,7 @@
                     <h:form id="listForm" prependId="false">
                         <div id="tableDiv">
                             <p:dataTable id="recordsDT" var="record"
-                                         value="#{crudBean.list}" paginator="true" rows="11"
+                                         value="#{crudBean.list}"  paginator="true" rows="11"
                                          emptyMessage="No existen datos"
                                          selection="#{crudBean.selectedRecord}"
                                          selectionMode="single" rowKey="#{record}"
@@ -64,7 +64,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{crudBean.title}" />
                                 </f:facet>
-                                <p:column headerText="#{crudBean.title}" sortBy="#{record}" styleClass="dataTableText">
+                                <p:column headerText="#{crudBean.title}" sortBy="#{record}">
                                     <h:outputText value="#{record}">
                                     </h:outputText>
                                 </p:column>
