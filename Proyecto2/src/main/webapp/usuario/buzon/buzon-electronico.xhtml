@@ -7,7 +7,13 @@
 
     <ui:composition template="../../WEB-INF/template/#{loginBean.template}.xhtml">
         <ui:define name="head">
-
+            <title>#{mailboxBean.title}</title>
+        </ui:define>
+        <ui:define name="atajo">
+            <p:breadCrumb>
+                <p:menuitem value="Atajo" url="" />
+                <p:menuitem value="Buzón Electrónico" url=""/>
+            </p:breadCrumb>
         </ui:define>
         <ui:define name="content">
             <h:body>   
@@ -114,6 +120,7 @@
                                 <h:outputText value="#{mailboxBean.mail.body}"  rendered="#{not empty mailboxBean.mail}"/>
                             </p:panel>
                             <h:outputText value="El adjunto de correo lo puede ver en su administracion de archivos en la ruta xxx" />
+                            <p:commandButton icon="ui-icon-circle-arrow-s" label="Descargar"></p:commandButton>
                         </p:outputPanel>
                     </p:dialog>
                 </div>
