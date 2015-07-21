@@ -47,7 +47,7 @@ public class LoginBean {
     public void loginAction() {
         if (usuario != null && getUsuarios().contains(usuario.toLowerCase())) {
             setTheme(usuario.equalsIgnoreCase("usuario")?"start":usuario.equalsIgnoreCase("entidad")?"hot-sneaks":usuario.equalsIgnoreCase("centralizador")?"pepper-grinder":"start");
-            setTemplate(usuario.equalsIgnoreCase("usuario")?"master-page":"master-page2");
+            setTemplate(usuario.equalsIgnoreCase("usuario")?"master-page":usuario.equalsIgnoreCase("entidad")?"master-page2":usuario.equalsIgnoreCase("centralizador")?"master-page3":"master-page");
             UtilBean.redirect("portal.jsf?faces-redirect=true");
         } else {
             HelperMethods.showMessageGrowl("Alerta","Error de usuario y Contraseña"); 
