@@ -46,9 +46,10 @@
                         <h:panelGrid columns="1">
                             <!-- Barra de menú -->
                             <p:panel id="buttonPanel">
-                                <p:button value="Subir archivo" icon="fa fa-upload">
-                                    <f:param name="productId" value="10" />
-                                </p:button>
+                            	<p:commandButton value="Cargar archivo" 
+                                		icon="fa fa-upload"
+                                		oncomplete="PF('loadDialog').show()">
+                                </p:commandButton>
                                 <p:button value="Nuevo directorio" icon="ui-icon-plus">
                                     <f:param name="productId" value="10" />
                                 </p:button>
@@ -68,11 +69,15 @@
                                 		oncomplete="PF('downloadDialog').show()">
                                 </p:commandButton>
 								
+								<p:dialog id="loadDialog" widgetVar="loadDialog"
+                                	modal="true" resizable="false" closeOnEscape="true">
+                                	<ui:include src="dialogos/dialogo-carga.xhtml" />
+                                </p:dialog>
                                 <p:dialog id="downloadDialog" widgetVar="downloadDialog"
                                 	modal="true" resizable="false" closeOnEscape="true">
-                                	<h:outputText value="Descargando ... " />
-                                	<h:outputText value="#{documentView.selectedDocument.name}" />
+                                	<ui:include src="dialogos/dialogo-descarga.xhtml" />
                                 </p:dialog>
+                                
                                 
                             </p:panel>
                             <!-- Tabla con detalles de archivo -->
