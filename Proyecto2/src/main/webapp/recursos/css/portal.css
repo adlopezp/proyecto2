@@ -27,19 +27,6 @@ tr.rojo {
     color: #3D3D3D;
 }
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-  border: 1px solid #FFFFFF;
-  background: #FFFFFF 50% 50% repeat;
-  font-weight: bold;
-  color: #3D3D3D;
-}
-
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
-  border: 1px solid #CCCCCC;
-  background: #CCCCCC 50% 50% repeat;
-  color: #363636;
-}
-
 /*
  * Clase para que no aparezca borde en los panelGrid
  */
