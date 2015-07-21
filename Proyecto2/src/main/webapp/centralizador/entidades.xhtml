@@ -6,14 +6,14 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:body>
-        <ui:composition template="./WEB-INF/template/#{loginBean.template}.xhtml" >
+        <ui:composition template="../WEB-INF/template/#{loginBean.template}.xhtml" >
             <ui:define name="head">
-                <title>#{crudBean.title}</title>
+                <title>#{entidadesBean.title}</title>
             </ui:define>
             <ui:define name="atajo">
                 <p:breadCrumb>
                     <p:menuitem value="Atajo" url="" />
-                    <p:menuitem value="Crud2" url=""/>
+                    <p:menuitem value="Crud" url=""/>
                 </p:breadCrumb>
             </ui:define>
             <ui:define name="content">
@@ -30,16 +30,16 @@
                         <p:toolbar id="toolbar">
                             <p:toolbarGroup align="left">
                                 <p:commandButton title="Refrescar" icon="ui-icon-refresh"
-                                                 actionListener="#{crudBean.refresh}"
-                                                 update=":toolbarForm :listForm :editForm " />
+                                                 actionListener="#{entidadesBean.refresh}"
+                                                 update=":toolbarForm :listForm :editForm :headerForm" />
                                 <p:commandButton title="Nuevo" icon="ui-icon-document"
-                                                 actionListener="#{crudBean.initNew}"
+                                                 actionListener="#{entidadesBean.initNew}"
                                                  oncomplete="PF('editDlg').show()" update=":listForm :editForm :toolbarForm :headerForm" />
                                 <p:commandButton title="Editar" icon="ui-icon-pencil"
-                                                 actionListener="#{crudBean.initEdit}"
+                                                 actionListener="#{entidadesBean.initEdit}"
                                                  oncomplete="PF('editDlg').show()" update=":editForm :headerForm"
-                                                 disabled="#{!crudBean.selected}" />
-                                <p:commandButton type="button" title="Eliminar" disabled="#{!crudBean.selected}"
+                                                 disabled="#{!entidadesBean.selected}" />
+                                <p:commandButton type="button" title="Eliminar" disabled="#{!entidadesBean.selected}"
                                                  icon="ui-icon-circle-close" onclick="PF('deleteCfmDlg').show()"/>
                                 <p:commandButton type="button" title="Imprimir"
                                                  icon="ui-icon-print">
@@ -51,21 +51,29 @@
                     <!-- SIEMPRE USAR PREPEND ID FALSE -->
                     <h:form id="listForm" prependId="false">
                         <div id="tableDiv">
-                            <p:dataTable id="recordsDT" var="record"
-                                         value="#{crudBean.list}"  paginator="true" rows="11"
+                            <p:dataTable id="recordsDT" var="record" style="height: 40%;"
+                                         value="#{entidadesBean.list}" paginator="true" rows="10"
                                          emptyMessage="No existen datos"
-                                         selection="#{crudBean.selectedRecord}"
+                                         selection="#{entidadesBean.selectedRecord}"
                                          selectionMode="single" rowKey="#{record}"
-                                         sortBy="#{record}" sortOrder="descending">
+                                         sortBy="#{record.nombre}" sortOrder="descending">
                                 <p:ajax event="rowSelect" update=":toolbarForm :editForm"
-                                        listener="#{crudBean.onRowSelect}" />
+                                        listener="#{entidadesBean.onRowSelect}" />
                                 <p:ajax event="rowUnselect" update=":toolbarForm :editForm"
-                                        listener="#{crudBean.onRowUnselect}" />
+                                        listener="#{entidadesBean.onRowUnselect}" />
                                 <f:facet name="header">
-                                    <h:outputText value="#{crudBean.title}" />
+                                    <h:outputText value="#{entidadesBean.title}" />
                                 </f:facet>
-                                <p:column headerText="#{crudBean.title}" sortBy="#{record}">
-                                    <h:outputText value="#{record}">
+                                <p:column headerText="Nombre Entidad" sortBy="#{record.nombre}" styleClass="dataTableText" width="100" >
+                                    <h:outputText value="#{record.nombre}">
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Descripcion Entidad" sortBy="#{record.descripcion}" styleClass="dataTableText" width="100" >
+                                    <h:outputText value="#{record.descripcion}">
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Tipo Entidad" sortBy="#{record.tipoEntidad}" styleClass="dataTableText" width="100">
+                                    <h:outputText value="#{record.tipoEntidad == 1 ?'Entidad Publica':'Entidad Privada'}" escape="false">
                                     </h:outputText>
                                 </p:column>
                             </p:dataTable>
@@ -76,14 +84,14 @@
                                      closable="false"
                                      message="Esta apunto de eliminar un registro de la tabla. ¿Confirmar operacion?">
                         <p:commandButton value="Si"
-                                         actionListener="#{crudBean.remove}"
-                                         update=":headerForm :toolbarForm :listForm"
+                                         actionListener="#{entidadesBean.remove}"
+                                         update=":listForm :editForm :toolbarForm :headerForm"
                                          onsuccess="PF('deleteCfmDlg').hide();"/>
                         <p:commandButton value="No" onclick="PF('deleteCfmDlg').hide();"
                                          type="button" />
                     </p:confirmDialog>
-                    <p:dialog header="#{crudBean.title}" appendTo="@(body)"
-                              widgetVar="editDlg" modal="true" width="450" height="180"
+                    <p:dialog header="#{entidadesBean.title}" appendTo="@(body)"
+                              widgetVar="editDlg" modal="true" width="450" height="300"
                               resizable="false">
                         <!-- SIEMPRE USAR PREPEND ID FALSE -->
                         <h:form id="editForm" prependId="false">
@@ -92,14 +100,30 @@
                                 <h:panelGrid id="editPnl" columns="2" width="350">
                                     <!-- EDICION DEL ENTITY -->
                                     <h:panelGrid columns="1" width="200">
-                                        <p:outputLabel for="nombre" value="Objeto"/>
-                                        <p:inputText id="nombre" value="#{crudBean.selectedRecord}" required="true" maxlength="150">
+                                        <p:outputLabel for="nombre" value="Nombre Entidad"/>
+                                        <p:inputText id="nombre" value="#{entidadesBean.selectedRecord.nombre}" required="true" maxlength="150">
                                         </p:inputText>
                                     </h:panelGrid>
                                     <p:message for="nombre" />
+                                    <h:panelGrid columns="1" width="200">
+                                        <p:outputLabel for="descripcion" value="Descripción Entidad"/>
+                                        <p:inputTextarea id="descripcion" label="descripcion" autoResize="false"
+                                                         value="#{entidadesBean.selectedRecord.descripcion}"
+                                                         cols="35" rows="4" maxlength="500" required="true">
+                                        </p:inputTextarea>  
+                                    </h:panelGrid>
+                                    <p:message for="descripcion" />
+                                    <h:panelGrid columns="1">
+                                        <p:outputLabel for="tipoEntidad" value="Tipo Entidad"/>
+                                        <p:selectOneMenu id="tipoEntidad" value="#{entidadesBean.selectedRecord.tipoEntidad}" required="true">     
+                                            <f:selectItem itemLabel="Entidad Publica" itemValue="1" />  
+                                            <f:selectItem itemLabel="Entidad Privada" itemValue="2" />  
+                                        </p:selectOneMenu> 
+                                    </h:panelGrid>
+                                    <p:message for="tipoEntidad" />
                                     <f:facet name="footer">
                                         <p:commandButton value="Guardar" icon="ui-icon-circle-check"
-                                                         actionListener="#{crudBean.save}"
+                                                         actionListener="#{entidadesBean.save}"
                                                          update=":headerForm :toolbarForm :listForm :editForm"
                                                          oncomplete="PF('editDlg').hide();"/>
                                         <p:commandButton value="Cancelar"

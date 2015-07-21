@@ -62,28 +62,9 @@
                         <p:slideMenu style="width:220px">
                             <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
                             <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
-                            <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
-                            <p:submenu label="Documentos" icon="ui-icon-document">
-                                <p:submenu label="Carpeta Personal">
-                                    <p:menuitem style="color:black"  value="Administración de Documentos" url="/usuario/documentos/administracion-archivos.jsf" />
-                                    <p:menuitem style="color:black" value="Administracion de Carpetas" url="/usuario/documentos/administracion-carpetas.jsf" />
-                                    <p:menuitem style="color:black" value="Documentos de Emisores" url="/usuario/documentos/documentos-emisores.jsf" />
-                                    <p:menuitem style="color:black" value="Documentos Resultantes Tramites" url="/usuario/documentos/resultados-tramite.jsf" />
-                                    <p:menuitem style="color:black" value="Solicitud de Documentos" url="/usuario/documentos/solicitud-documentos.jsf" />
-                                </p:submenu>
-                                <p:submenu label="Otros">
-                                    <p:menuitem style="color:black" value="Documentos Compartidos" url="/usuario/documentos/documentos-compartidos.jsf" />
-                                    <p:menuitem style="color:black" value="Firmar Documentos" url="/usuario/documentos/firmar-documentos.jsf" />
-                                </p:submenu>
-                            </p:submenu>
-                            <p:menuitem icon="ui-icon-mail-closed" value="Correo Electrónico" action="/usuario/correo/email.jsf?faces-redirect=true" />
-                            <p:submenu icon="ui-icon-info" label="Notificaciones Oficiales">
-                                <p:submenu label="Notificaciones">
-                                    <p:menuitem style="color:black" value="Administración de Notificaciones" url="/usuario/notificaciones/notificaciones-oficiales.jsf" />
-                                    <p:menuitem style="color:black" value="Autorización de Notificaciones" url="/usuario/notificaciones/autorizacion-notificaciones.jsf" />
-                                    <p:menuitem style="color:black" value="Solicitud Notificaciones" url="/usuario/notificaciones/solicitud-notificaciones.jsf" />
-                                    <p:menuitem style="color:black" value="Configuración" url="/usuario/notificaciones/configuracion-notificaciones.jsf" />
-                                </p:submenu>
+                            <p:submenu icon="ui-icon-info" label="Parametrizacion">
+                                <p:menuitem style="color:black" value="Administración de Entidades" url="/centralizador/entidades.jsf" />
+                                <p:menuitem style="color:black" value="Administración de Tipod de Archivos" url="/centralizador/tiposArchivos.jsf"  />
                             </p:submenu>
                             <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
                             <p:separator />

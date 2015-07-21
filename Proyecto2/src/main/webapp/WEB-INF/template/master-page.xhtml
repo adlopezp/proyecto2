@@ -28,7 +28,7 @@
                                     <h:outputText style="text-align: right;">Usuario:</h:outputText>
                                     <h:outputText value="Ecos StatusQuo" />
                                     <h:outputText style="text-align: right;">Rol:</h:outputText>
-                                    <h:outputText>Ciudadano</h:outputText>
+                                    <h:outputText value="#{loginBean.usuario}"></h:outputText>
                                     <h:outputText style="text-align: right;">Fecha:</h:outputText>
                                     <h:outputText value="#{utilBean.currentTime}">
                                         <f:convertDateTime pattern="EEEE dd 'de' MMM 'de' yyyy" />
@@ -44,7 +44,6 @@
                             <p:megaMenu styleClass="ui-state-default" autoDisplay="false">
                                 <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
                                 <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
-                                <p:menuitem icon="ui-icon-check" value="Crud 2" action="/crud2.jsf?faces-redirect=true" />
                                 <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
                                 <p:submenu label="Documentos" icon="ui-icon-document">
                                     <p:column>
