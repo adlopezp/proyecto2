@@ -62,7 +62,6 @@
                         <p:slideMenu style="width:220px">
                             <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
                             <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
-                            <p:menuitem icon="ui-icon-check" value="Crud 2" action="/crud2.jsf?faces-redirect=true" />
                             <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
                             <p:submenu label="Documentos" icon="ui-icon-document">
                                 <p:submenu label="Carpeta Personal">
@@ -85,6 +84,10 @@
                                     <p:menuitem style="color:black" value="Solicitud Notificaciones" url="/usuario/notificaciones/solicitud-notificaciones.jsf" />
                                     <p:menuitem style="color:black" value="Configuración" url="/usuario/notificaciones/configuracion-notificaciones.jsf" />
                                 </p:submenu>
+                            </p:submenu>
+                            <p:submenu icon="ui-icon-info" label="Parametrizacion">
+                                <p:menuitem style="color:black" value="Administración de Entidades" url="/centralizador/entidades.jsf" />
+                                <p:menuitem style="color:black" value="Administración de Tipod de Archivos" url="/centralizador/tiposArchivos.jsf"  />
                             </p:submenu>
                             <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
                             <p:separator />
