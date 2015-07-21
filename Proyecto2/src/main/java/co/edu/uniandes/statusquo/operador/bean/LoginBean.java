@@ -11,6 +11,9 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -23,9 +26,9 @@ public class LoginBean {
     private String usuario;
     private String password;
     private String seleccion;
-    private String theme="start";
-    private String template="master-page";
-    private List<String> usuarios=new ArrayList<String>();
+    private String theme = "start";
+    private String template = "master-page";
+    private List<String> usuarios = new ArrayList<>();
     private Date logonDate;
 
     public String getUsuario() {
@@ -37,7 +40,7 @@ public class LoginBean {
     }
 
     public String getPassword() {
-        return password; 
+        return password;
     }
 
     public void setPassword(String password) {
@@ -46,13 +49,18 @@ public class LoginBean {
 
     public void loginAction() {
         if (usuario != null && getUsuarios().contains(usuario.toLowerCase())) {
-            setTheme(usuario.equalsIgnoreCase("usuario")?"start":usuario.equalsIgnoreCase("entidad")?"hot-sneaks":usuario.equalsIgnoreCase("centralizador")?"pepper-grinder":"start");
-            setTemplate(usuario.equalsIgnoreCase("usuario")?"master-page":usuario.equalsIgnoreCase("entidad")?"master-page2":usuario.equalsIgnoreCase("centralizador")?"master-page3":"master-page");
-            UtilBean.redirect("portal.jsf?faces-redirect=true");
+            setTheme(usuario.equalsIgnoreCase("usuario") ? "start" : usuario.equalsIgnoreCase("entidad") ? "hot-sneaks" : usuario.equalsIgnoreCase("centralizador") ? "pepper-grinder" : "start");
+            setTemplate(usuario.equalsIgnoreCase("usuario") ? "master-page" : usuario.equalsIgnoreCase("entidad") ? "master-page2" : usuario.equalsIgnoreCase("centralizador") ? "master-page3" : "master-page");
+            UtilBean.redirect("portal.jsf");
         } else {
-            HelperMethods.showMessageGrowl("Alerta","Error de usuario y Contraseña"); 
+            HelperMethods.showMessageGrowl("Alerta", "Error de usuario y Contraseña");
         }
 
+    }
+
+    public void logoutAction() {
+        setTheme("start");
+        UtilBean.redirectLogin();
     }
 
     public String getSeleccion() {
@@ -96,6 +104,19 @@ public class LoginBean {
 
     public void setUsuarios(List<String> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public boolean isRenderPortal() {
+        final ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        final HttpServletRequest request = (HttpServletRequest) context.getRequest();
+        if (usuario == null) {
+            usuario = "usuario";
+        }
+        if (request.getRequestURI().contains("portal")) {
+            UtilBean.redirect(usuario.equalsIgnoreCase("usuario") ? "usuario/buzon/buzon-electronico.jsf" : usuario.equalsIgnoreCase("entidad") ? "entidad/tramites-basicos.jsf" : usuario.equalsIgnoreCase("centralizador") ? "centralizador/entidades.jsf" : "usuario/buzon/buzon-electronico.jsf");
+            return false;
+        }
+        return true;
     }
 
 }

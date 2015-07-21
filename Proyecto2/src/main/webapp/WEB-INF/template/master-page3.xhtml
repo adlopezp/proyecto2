@@ -13,7 +13,7 @@
         <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
         <ui:insert name="head"/>
     </h:head>
-    <h:body onload="#{login.iniciarBean()}">
+    <h:body  rendered="#{loginBean.renderPortal}">
         <p:layout fullPage="true" >
 
             <p:layoutUnit position="north" resizable="false" style="border: 0px;text-align: center">
@@ -61,14 +61,14 @@
                     <h:form id="menuForm">
                         <p:slideMenu style="width:220px">
                             <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
-                            <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
-                            <p:submenu icon="ui-icon-info" label="Parametrizacion">
-                                <p:menuitem style="color:black" value="Administración de Entidades" url="/centralizador/entidades.jsf" />
-                                <p:menuitem style="color:black" value="Administración de Tipod de Archivos" url="/centralizador/tiposArchivos.jsf"  />
+                            <!--<p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />-->
+                            <p:submenu icon="ui-icon-info" label="Parametrización">
+                                <p:menuitem style="color:black" value="Entidades Prestadoras de Servicio" url="/centralizador/entidades.jsf" />
+                                <p:menuitem style="color:black" value="Documentos Principales" url="/centralizador/tiposArchivos.jsf"  />
                             </p:submenu>
                             <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
                             <p:separator />
-                            <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" action="/index.jsf?faces-redirect=true" />
+                            <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" actionListener="#{loginBean.logoutAction}"/>
                         </p:slideMenu>
                     </h:form>
                 </ui:insert>

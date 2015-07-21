@@ -122,8 +122,8 @@
                         </p:row>
                         <p:row>
                             <p:column colspan="4" style="text-align: center;">
-                                <p:commandButton value="Guardar" onclick="abrirPagina('portal')" type="button" ajax="false"/>
-                                <p:commandButton value="Atras" onclick="abrirPagina('index')" type="button" ajax="false"/>
+                                <p:commandButton value="Guardar" onclick="abrirPagina('#{request.contextPath}/index')" type="button" ajax="false"/>
+                                <p:commandButton value="Atras" onclick="abrirPagina('#{request.contextPath}/index')" type="button" ajax="false"/>
                             </p:column>
                         </p:row>
                     </p:panelGrid>

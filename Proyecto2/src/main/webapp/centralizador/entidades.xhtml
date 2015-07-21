@@ -10,16 +10,16 @@
             <ui:define name="head">
                 <title>#{entidadesBean.title}</title>
             </ui:define>
-            <ui:define name="atajo">
-                <p:breadCrumb>
-                    <p:menuitem value="Atajo" url="" />
-                    <p:menuitem value="Crud" url=""/>
-                </p:breadCrumb>
-            </ui:define>
             <ui:define name="content">
                 <!-- SIEMPRE USAR UN PANEL PARA AGRUPAR LOS CONTENIDOS DEL MÓDULO -->
                 <p:panel id="crudPanel" style="min-height: 10px;">
                     <!-- SIEMPRE USAR PREPEND ID FALSE -->
+                    <p:breadCrumb>
+                        <p:menuitem value="Atajo" url="" />
+                        <p:menuitem value="Parametrización" url=""/>
+                        <p:menuitem value="Entidades Prestadoras de Servicio" url=""/>
+                    </p:breadCrumb>
+                    <br/>
                     <h:form id="headerForm" prependId="false">
                         <!-- SIEMPRE USAR EL GROWL Y MESSAGES -->
                         <p:growl id="growl" showDetail="true" />
@@ -110,15 +110,15 @@
                                         <p:inputTextarea id="descripcion" label="descripcion" autoResize="false"
                                                          value="#{entidadesBean.selectedRecord.descripcion}"
                                                          cols="35" rows="4" maxlength="500" required="true">
-                                        </p:inputTextarea>  
+                                        </p:inputTextarea>
                                     </h:panelGrid>
                                     <p:message for="descripcion" />
                                     <h:panelGrid columns="1">
                                         <p:outputLabel for="tipoEntidad" value="Tipo Entidad"/>
-                                        <p:selectOneMenu id="tipoEntidad" value="#{entidadesBean.selectedRecord.tipoEntidad}" required="true">     
-                                            <f:selectItem itemLabel="Entidad Publica" itemValue="1" />  
-                                            <f:selectItem itemLabel="Entidad Privada" itemValue="2" />  
-                                        </p:selectOneMenu> 
+                                        <p:selectOneMenu id="tipoEntidad" value="#{entidadesBean.selectedRecord.tipoEntidad}" required="true">
+                                            <f:selectItem itemLabel="Entidad Publica" itemValue="1" />
+                                            <f:selectItem itemLabel="Entidad Privada" itemValue="2" />
+                                        </p:selectOneMenu>
                                     </h:panelGrid>
                                     <p:message for="tipoEntidad" />
                                     <f:facet name="footer">

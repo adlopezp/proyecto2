@@ -38,6 +38,14 @@ tr.rojo {
     border-width: 0px;
 }
 
-.noborder .ui-widget-content {
+.noborder tr.ui-widget-content {
     border: 0px;
+}
+
+.nopadding td.ui-panelgrid-cell {
+    padding: 2px 4px;
+}
+
+.paneltotal {
+    width: 100%! important;
 }

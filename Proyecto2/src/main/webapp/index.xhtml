@@ -16,8 +16,6 @@
                 <br/>
                 <span style="font-weight: bold; font-size: 26px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Mi Carpeta Personal</span><br/>
                 <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Segura, Rápida y Eficiente</span><br/>
-                <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Para ingresar digite unicamente el nombre del usuario :</span><br/>
-                <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">usuario , entidad , centralizador</span>
                 <br/>
                 <br/>
                 <h:form id="headerForm" prependId="false">
@@ -31,7 +29,7 @@
                         <p:row style="border: 0px">
                             <p:column>
                                 <span style="font-weight: bold; font-size: 18px;">Indentificación</span><br/>
-                                <span style="font-weight: bold; font-size: 9px;">(Usuario/Documento de Identidad/NIT)</span>
+                                <span style="font-weight: bold; font-size: 9px;">(Código Acceso/Doc. Identidad/NIT)</span>
                             </p:column>
                             <p:column>
                                 <p:inputText value="#{loginBean.usuario}" style="width: 200px; font-size: 20px;"/>
@@ -100,6 +98,14 @@
                         <td><p:commandButton value="Olvide mi Contraseña" action="registro?faces-redirect=true" disabled="true"/></td>
                     </tr>
                 </table>
+                <br/>
+                <br/>
+                <p:panel header="Nota: Información Mockup" style="width: 520px">
+                    <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif;">Para ingresar digite alguno de los siguientes usuarios, dejándo en blanco la contraseña :</span><br/><br/>
+                    <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: brown;">usuario</span> <span style="font-size: 16px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: black;">Para ingresar como una Persona Natural/Juridica</span>
+                    <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: brown;">entidad</span> <span style="font-size: 16px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: black;">Para ingresar como una Entidad Pública</span>
+                    <span style="font-weight: bold; font-size: 22px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: brown;">centralizador</span> <span style="font-size: 16px; font-family: 'Segoe UI', Verdana, Arial, sans-serif; color: black;">Para ingresar como un usuario del Centralizador</span>
+                </p:panel>
             </div>
         </h:form>
     </h:body>

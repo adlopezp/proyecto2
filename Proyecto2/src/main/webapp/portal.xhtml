@@ -7,12 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:body>
         <ui:composition template="./WEB-INF/template/#{loginBean.template}.xhtml">
-
             <ui:define name="head">
                 <title>Bienvenido</title>
             </ui:define>
             <ui:define name="content">
-                Acá va el dashboard
+                <p:outputLabel value="Acá va el dashboard"/>
+
             </ui:define>
         </ui:composition>
     </h:body>

@@ -25,12 +25,8 @@
         <param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
         <param-value>false</param-value>
     </context-param>
-    <context-param>
-    	<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-    	<param-value>.xhtml</param-value>
-	</context-param>
     <!-- Prime faces options -->
-     <context-param>
+    <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>#{loginBean.theme}</param-value>
     </context-param>

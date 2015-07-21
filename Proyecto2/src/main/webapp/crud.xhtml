@@ -10,16 +10,16 @@
             <ui:define name="head">
                 <title>#{crudBean.title}</title>
             </ui:define>
-            <ui:define name="atajo">
-                <p:breadCrumb>
-                    <p:menuitem value="Atajo" url="" />
-                    <p:menuitem value="Crud" url=""/>
-                </p:breadCrumb>
-            </ui:define>
+
             <ui:define name="content">
                 <!-- SIEMPRE USAR UN PANEL PARA AGRUPAR LOS CONTENIDOS DEL MÓDULO -->
                 <p:panel id="crudPanel" style="min-height: 10px;">
                     <!-- SIEMPRE USAR PREPEND ID FALSE -->
+                    <p:breadCrumb>
+                        <p:menuitem value="Atajo" url="" />
+                        <p:menuitem value="Crud" url=""/>
+                    </p:breadCrumb>
+                    <br/>
                     <h:form id="headerForm" prependId="false">
                         <!-- SIEMPRE USAR EL GROWL Y MESSAGES -->
                         <p:growl id="growl" showDetail="true" />

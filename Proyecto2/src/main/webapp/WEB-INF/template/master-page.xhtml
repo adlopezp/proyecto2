@@ -10,10 +10,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="shortcut icon" href="#{request.contextPath}/recursos/imagenes/icono.ico" />
         <link rel="stylesheet" href="#{request.contextPath}/recursos/css/portal.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/recursos/css/portal1.css"/>
         <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
         <ui:insert name="head"/>
     </h:head>
-    <h:body>
+    <h:body rendered="#{loginBean.renderPortal}">
         <div id="wrap" style="height: 100%;">
             <div id="top">
                 <ui:insert name="top">
@@ -43,7 +44,7 @@
                         <h:form id="menuForm">
                             <p:megaMenu styleClass="ui-state-default" autoDisplay="false">
                                 <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
-                                <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
+                                <!--<p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />-->
                                 <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
                                 <p:submenu label="Documentos" icon="ui-icon-document">
                                     <p:column>
@@ -71,12 +72,9 @@
                                         </p:submenu>
                                     </p:column>
                                 </p:submenu>
-                                <!-- Entidades -->
-                                <p:menuitem icon="ui-icon-check" value="Buscar Documentos" action="/entidad/buscar-documentos.jsf?faces-redirect=true" />
-                                <p:menuitem icon="ui-icon-check" value="Administrar Tramites" action="/entidad/tramites-basicos.jsf?faces-redirect=true" />
                                 <!-- Para todos -->
                                 <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
-                                <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" action="/index.jsf?faces-redirect=true" />
+                                <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" actionListener="#{loginBean.logoutAction}" />
                             </p:megaMenu>
                         </h:form>
                     </p:panel>
@@ -88,9 +86,6 @@
                     </ui:insert>
                 </div>
                 <div>
-                    <div id="right">
-                        <ui:insert name="atajo"/>
-                    </div>
                     <div id="content" class="right_content" style="min-height: 130px;">
                         <ui:insert name="content"/>
                     </div>

@@ -13,9 +13,8 @@
         <script type="text/javascript" href="#{request.contextPath}/recursos/js/portal.js"/>
         <ui:insert name="head"/>
     </h:head>
-    <h:body onload="#{login.iniciarBean()}">
+    <h:body rendered="#{loginBean.renderPortal}">
         <p:layout fullPage="true" >
-
             <p:layoutUnit position="north" resizable="false" style="border: 0px;text-align: center">
                 <ui:insert name="top">
                     <p:panel style="padding: 0px">
@@ -61,33 +60,11 @@
                     <h:form id="menuForm">
                         <p:slideMenu style="width:220px">
                             <p:menuitem icon="ui-icon-home" value="Inicio" action="/portal.jsf?faces-redirect=true" />
-                            <p:menuitem icon="ui-icon-check" value="Crud" action="/crud.jsf?faces-redirect=true" />
-                            <p:menuitem icon="ui-icon-suitcase" value="Buzón Electrónico" action="/usuario/buzon/buzon-electronico.jsf?faces-redirect=true" />
-                            <p:submenu label="Documentos" icon="ui-icon-document">
-                                <p:submenu label="Carpeta Personal">
-                                    <p:menuitem style="color:black"  value="Administración de Documentos" url="/usuario/documentos/administracion-archivos.jsf" />
-                                    <p:menuitem style="color:black" value="Administracion de Carpetas" url="/usuario/documentos/administracion-carpetas.jsf" />
-                                    <p:menuitem style="color:black" value="Documentos de Emisores" url="/usuario/documentos/documentos-emisores.jsf" />
-                                    <p:menuitem style="color:black" value="Documentos Resultantes Tramites" url="/usuario/documentos/resultados-tramite.jsf" />
-                                    <p:menuitem style="color:black" value="Solicitud de Documentos" url="/usuario/documentos/solicitud-documentos.jsf" />
-                                </p:submenu>
-                                <p:submenu label="Otros">
-                                    <p:menuitem style="color:black" value="Documentos Compartidos" url="/usuario/documentos/documentos-compartidos.jsf" />
-                                    <p:menuitem style="color:black" value="Firmar Documentos" url="/usuario/documentos/firmar-documentos.jsf" />
-                                </p:submenu>
-                            </p:submenu>
-                            <p:menuitem icon="ui-icon-mail-closed" value="Correo Electrónico" action="/usuario/correo/email.jsf?faces-redirect=true" />
-                            <p:submenu icon="ui-icon-info" label="Notificaciones Oficiales">
-                                <p:submenu label="Notificaciones">
-                                    <p:menuitem style="color:black" value="Administración de Notificaciones" url="/usuario/notificaciones/notificaciones-oficiales.jsf" />
-                                    <p:menuitem style="color:black" value="Autorización de Notificaciones" url="/usuario/notificaciones/autorizacion-notificaciones.jsf" />
-                                    <p:menuitem style="color:black" value="Solicitud Notificaciones" url="/usuario/notificaciones/solicitud-notificaciones.jsf" />
-                                    <p:menuitem style="color:black" value="Configuración" url="/usuario/notificaciones/configuracion-notificaciones.jsf" />
-                                </p:submenu>
-                            </p:submenu>
+                            <p:menuitem icon="ui-icon-document" value="Buscar Documentos" action="/entidad/buscar-documentos.jsf?faces-redirect=true" />
+                            <p:menuitem icon="ui-icon-suitcase" value="Administrar Tramites" action="/entidad/tramites-basicos.jsf?faces-redirect=true" />
                             <p:menuitem icon="ui-icon-person" value="Perfil" action="/perfil/configuracion-usuario.jsf?faces-redirect=true" />
                             <p:separator />
-                            <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" action="/index.jsf?faces-redirect=true" />
+                            <p:menuitem icon="ui-icon-close" value="Cerrar Sesión" actionListener="#{loginBean.logoutAction}" />
                         </p:slideMenu>
                     </h:form>
                 </ui:insert>
