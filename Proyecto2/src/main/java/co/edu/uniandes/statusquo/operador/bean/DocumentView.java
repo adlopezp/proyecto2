@@ -5,19 +5,24 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 import org.primefaces.event.NodeSelectEvent;
+import org.primefaces.event.SelectEvent;
 import org.primefaces.model.TreeNode;
 
 import co.edu.uniandes.statusquo.operador.business.Document;
 import co.edu.uniandes.statusquo.operador.services.DocumentService;
  
 @ManagedBean(name="documentView")
+@SessionScoped
 public class DocumentView {
      
     private TreeNode root;
     
     private List<Document> currentDocuments;
+    
+    private Document selectedDocument;
      
     @ManagedProperty("#{documentService}")
     private DocumentService service;
@@ -42,9 +47,21 @@ public class DocumentView {
 	public void setCurrentDocuments(List<Document> currentDocuments) {
 		this.currentDocuments = currentDocuments;
 	}
+	
+	public Document getSelectedDocument() {
+		return selectedDocument;
+	}
+
+	public void setSelectedDocument(Document selectedDocument) {
+		this.selectedDocument = selectedDocument;
+	}
 
 	public void onNodeSelect(NodeSelectEvent event) {
 		currentDocuments = ((Document) event.getTreeNode().getData()).getListDocuments();
     }
+	
+	public void onRowSelect(SelectEvent event) {
+		selectedDocument = (Document) event.getObject();
+	}
 
 }
