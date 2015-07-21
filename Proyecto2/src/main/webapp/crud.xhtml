@@ -31,7 +31,7 @@
                             <p:toolbarGroup align="left">
                                 <p:commandButton title="Refrescar" icon="ui-icon-refresh"
                                                  actionListener="#{crudBean.refresh}"
-                                                 update=":toolbarForm :listForm :editForm" />
+                                                 update=":toolbarForm :listForm :editForm :headerForm" />
                                 <p:commandButton title="Nuevo" icon="ui-icon-document"
                                                  actionListener="#{crudBean.initNew}"
                                                  oncomplete="PF('editDlg').show()" update=":listForm :editForm :toolbarForm :headerForm" />
@@ -51,7 +51,7 @@
                     <!-- SIEMPRE USAR PREPEND ID FALSE -->
                     <h:form id="listForm" prependId="false">
                         <div id="tableDiv">
-                            <p:dataTable id="recordsDT" var="record"
+                            <p:dataTable id="recordsDT" var="record" style="height: 40%;"
                                          value="#{crudBean.list}" paginator="true" rows="10"
                                          emptyMessage="No existen datos"
                                          selection="#{crudBean.selectedRecord}"
@@ -64,7 +64,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{crudBean.title}" />
                                 </f:facet>
-                                <p:column headerText="#{crudBean.title}" sortBy="#{record}" styleClass="dataTableText">
+                                <p:column sortBy="#{record}" headerText="#{crudBean.title}" >
                                     <h:outputText value="#{record}">
                                     </h:outputText>
                                 </p:column>
